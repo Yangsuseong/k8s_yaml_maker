@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: miruware0
+  #k8s에서 생성할 pods의 이름, 하나의 namespace에서는 같은 이름으로 생성 불가능
 spec:
   restartPolicy: OnFailure
 
@@ -10,6 +11,7 @@ spec:
     emptyDir:
       medium: Memory
   - name: pvc-volume  
+  #수정 불필요
     persistentVolumeClaim:
        claimName: miruware-pvc
      
