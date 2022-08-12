@@ -232,13 +232,13 @@ def createNewWindow():
 
 def summit_button():
     if(len(image_select) <= 0):
-        tkinter.messagebox.showerror(title="Error", message="Please Select Image.")
+        tkinter.messagebox.showwarning(title="Warnning", message="Please Select Image.")
     
     elif(len(r_ent_name.get()) <= 0):
-        tkinter.messagebox.showerror(title="Error", message="Please Insert Pod name.")
+        tkinter.messagebox.showwarning(title="Warnning", message="Please Insert Pod name.")
 
     elif(len(r_ent_command.get()) <= 0):
-        tkinter.messagebox.showerror(title="Error", message="Please Insert Command.")
+        tkinter.messagebox.showwarning(title="Warnning", message="Please Insert Command.")
 
     else:
         # gpu
@@ -275,7 +275,7 @@ def summit_button():
         #win.destroy()
 
         if(value < 0):
-            tkinter.messagebox.showerror(title="Error", message="Please select GPU count.")
+            tkinter.messagebox.showwarning(title="Warnning", message="Please select GPU count.")
 
         if(value >= 0):    
             app = Tk()
@@ -311,11 +311,6 @@ def summit_button():
 
             def app_summit_button():
                 os.system("kubectl create -f " + yaml_file_path)
-                time.sleep(1)
-                tkinter.messagebox.showinfo(title="Result", message="Job Create Complete.")
-                app.destroy()
-                win.destroy()
-
 
             # Button
             app_cancle_btn = Button(app, text="cancle")
@@ -465,7 +460,7 @@ summit_btn.place(x=970, y=510, width=100, height=50)
 copyright = Label(
     win,
     font=("Helvetica", 9))
-copyright.config(text="Made By Suseong,Yang      Email : tntjd5596@miruware.com      2021.08.30")
+copyright.config(text="Made By Suseong,Yang      Email : tntjd5596@miruware.com      2021.08.27")
 copyright.place(x=630, y=570, width=500, height=30)
 
 
