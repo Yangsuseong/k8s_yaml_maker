@@ -1,5 +1,7 @@
 # K8s Yaml Maker
 
+* 2022/08/21 기준 Ubuntu 환경에서 사용 가능
+
 ## 코드 실행
 ```bash
 $ python3 ./auto_yaml_maker.py
