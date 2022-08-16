@@ -31,7 +31,7 @@ $ cat ./k8s_create.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: root
+  name: yss
 spec:
   restartPolicy: OnFailure
 
@@ -41,7 +41,7 @@ spec:
       medium: Memory
   - name: pvc-volume
     persistentVolumeClaim:
-       claimName: root-pvc
+       claimName: yss-pvc
 
   containers:
   - name: gpu-container
@@ -49,7 +49,7 @@ spec:
     volumeMounts:
     - mountPath: /dev/shm
       name: shmdir
-    - mountPath: /home/root
+    - mountPath: /home/yss
       name: pvc-volume
     command:
       - "/bin/sh"
@@ -65,4 +65,18 @@ spec:
       limits:
         nvidia.com/gpu: 1
 #################################
+```
+
+
+## Yaml 파일을 사용하여 Pod 생성
+```bash
+$ kubectl apply -f yaml_maker_output.yaml
+```
+
+::Pod 생성 확인::
+```bash
+$ kubectl get pod
+>>>
+NAME               READY   STATUS      RESTARTS   AGE
+yss                0/1     Completed   0          52s
 ```
